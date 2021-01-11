@@ -71,8 +71,41 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
 
+            #category .image {
+                opacity: 1;
+                display: block;
+                width: 100%;
+                height: auto;
+                transition: .5s ease;
+                backface-visibility: hidden;
+            }
+
+            #category .middle {
+                transition: .5s ease;
+                opacity: 0;
+                position: absolute;
+                /* top: 50%;
+                left: 50%; */
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            #category .container:hover .image {
+                opacity: 0.3;
+            }
+
+            #category .container:hover .middle {
+                opacity: 1;
+            }
+
+            #category .text a {
+                color: gray;
+                font-size: 16px;
+                padding: 16px 32px;
+            }
+        </style>
 
 </head>
 <body>
@@ -111,7 +144,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                             in       <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
