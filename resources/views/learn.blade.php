@@ -8,11 +8,10 @@
 <h1>Kategori</h1>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-echo count($vocabs)    
+
 <ol class="carousel-indicators">
         @for($i=0; $i<=count(array($vocabs)); $i++)
             <li data-target="#carouselExampleCaptions" data-slide-to="{{ $i }}" class=""></li>
-            
         @endfor
     </ol>
     <div class="carousel-inner">
