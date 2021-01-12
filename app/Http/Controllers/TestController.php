@@ -12,6 +12,14 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function changeStatus(Request $r){
+        $t = Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)->first();
+
+        $t->update(['status'=> $r->status]);
+
+        return redirect()->back();
+    }
+
     public function index()
     {
         //

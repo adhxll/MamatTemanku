@@ -49,7 +49,7 @@ class VocabController extends Controller
     {
         $vocabs = Vocab::where('category_id', $category_id);
 
-        return view('learn', ['vocabs'=>$vocabs]);
+        return view('learn', compact('vocabs'));
     }
 
     /**
