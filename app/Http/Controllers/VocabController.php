@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vocab;
+use App\Category;
 use Illuminate\Http\Request;
 
 class VocabController extends Controller
@@ -44,9 +45,12 @@ class VocabController extends Controller
      * @param  \App\Vocab  $vocab
      * @return \Illuminate\Http\Response
      */
-    public function show(Vocab $vocab)
+    public function show($category_id)
     {
-        //
+        $vocabs = Vocab::all()->find($category_id);
+
+
+        return view('learn', ['vocabs'=>$vocabs]);
     }
 
     /**

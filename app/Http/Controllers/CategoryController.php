@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -44,10 +45,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($category_id)
     {
         //
+        $category = Category::all()->find($category_id);
+        return view('menu', compact('category'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

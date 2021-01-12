@@ -72,7 +72,7 @@
                 margin-bottom: 30px;
             }
 
-            #category .image {
+            #category_img {
                 opacity: 1;
                 display: block;
                 width: 100%;
@@ -92,15 +92,17 @@
                 text-align: center;
             }
 
-            #category .container:hover .image {
+            #category:hover #category_img {
                 opacity: 0.3;
             }
 
-            #category .container:hover .middle {
+            #category:hover .middle {
+                background-color: lightgray;
                 opacity: 1;
             }
 
-            #category .text a {
+            .text a {
+                background-color: lightgray;
                 color: gray;
                 font-size: 16px;
                 padding: 16px 32px;
@@ -144,7 +146,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                             in       <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

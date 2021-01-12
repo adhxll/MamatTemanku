@@ -14,10 +14,9 @@ class CreateTrainsTable extends Migration
     public function up()
     {
         Schema::create('trains', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('vocab_id')->references('id')->on('vocabs')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('status');
+            $table->string('status'); //notlearned (default), learned
             $table->timestamps();
         });
     }
