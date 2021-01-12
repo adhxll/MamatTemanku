@@ -15,8 +15,8 @@ class CategorySeeder extends Seeder
         //
         DB::table('categories')->insert([
             ['name'=> 'Animals', 'image'=>'Animals.jpg'],
-            ['name'=> 'Places', 'image'=>'Places.jpg'],
-            ['name'=> 'House', 'image'=>'House.jpg']
+            ['name'=> 'Places', 'image'=>'Places.png'],
+            ['name'=> 'House', 'image'=>'House.png']
         ]);
     }
 }

@@ -14,27 +14,27 @@ class VocabSeeder extends Seeder
     {
         //
         DB::table('vocabs')->insert([
-            ['category_id'=> 1, 'name_id'=> 'Harimau', 'name_en'=> 'Tiger', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 1, 'name_id'=> 'Sapi', 'name_en'=> 'Cow', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 1, 'name_id'=> 'Kelinci', 'name_en'=> 'Rabbit', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 1, 'name_id'=> 'Kucing', 'name_en'=> 'Cat', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 1, 'name_id'=> 'Gajah', 'name_en'=> 'Elephant', 'audio'=>'', 'image'=>''],
+            ['category_id'=> 1, 'name_id'=> 'Harimau', 'name_en'=> 'Tiger', 'audio'=>'', 'image'=>'tiger.png'],
+            ['category_id'=> 1, 'name_id'=> 'Sapi', 'name_en'=> 'Cow', 'audio'=>'', 'image'=>'cow.png'],
+            ['category_id'=> 1, 'name_id'=> 'Kelinci', 'name_en'=> 'Rabbit', 'audio'=>'', 'image'=>'rabbit.png'],
+            ['category_id'=> 1, 'name_id'=> 'Kucing', 'name_en'=> 'Cat', 'audio'=>'', 'image'=>'cat.png'],
+            ['category_id'=> 1, 'name_id'=> 'Gajah', 'name_en'=> 'Elephant', 'audio'=>'', 'image'=>'elephant.png'],
         ]);
 
         DB::table('vocabs')->insert([
-            ['category_id'=> 2, 'name_id'=> 'Pantai', 'name_en'=> 'Beach', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 2, 'name_id'=> 'Taman', 'name_en'=> 'Park', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 2, 'name_id'=> 'Restoran', 'name_en'=> 'Restaurant', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 2, 'name_id'=> 'Gunung', 'name_en'=> 'Mountain', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 2, 'name_id'=> 'Perpustakaan', 'name_en'=> 'Library', 'audio'=>'', 'image'=>''],
+            ['category_id'=> 2, 'name_id'=> 'Pantai', 'name_en'=> 'Beach', 'audio'=>'', 'image'=>'beach.png'],
+            ['category_id'=> 2, 'name_id'=> 'Taman', 'name_en'=> 'Park', 'audio'=>'', 'image'=>'park.png'],
+            ['category_id'=> 2, 'name_id'=> 'Restoran', 'name_en'=> 'Restaurant', 'audio'=>'', 'image'=>'restaurant.png'],
+            ['category_id'=> 2, 'name_id'=> 'Gunung', 'name_en'=> 'Mountain', 'audio'=>'', 'image'=>'mountain.png'],
+            ['category_id'=> 2, 'name_id'=> 'Perpustakaan', 'name_en'=> 'Library', 'audio'=>'', 'image'=>'library.png'],
         ]);
 
         DB::table('vocabs')->insert([
-            ['category_id'=> 3, 'name_id'=> 'Ruang Tamu', 'name_en'=> 'Living Room', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 3, 'name_id'=> 'Dapur', 'name_en'=> 'Cow', 'Kitchen'=>'', 'image'=>''],
-            ['category_id'=> 3, 'name_id'=> 'Kamar Tidur', 'name_en'=> 'Bedroom', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 3, 'name_id'=> 'Kamar Mandi', 'name_en'=> 'Bathroom', 'audio'=>'', 'image'=>''],
-            ['category_id'=> 3, 'name_id'=> 'Garasi', 'name_en'=> 'Garage', 'audio'=>'', 'image'=>''],
+            ['category_id'=> 3, 'name_id'=> 'Ruang Tamu', 'name_en'=> 'Living Room', 'audio'=>'', 'image'=>'livingroom.png'],
+            ['category_id'=> 3, 'name_id'=> 'Dapur', 'name_en'=> 'Cow', 'Kitchen'=>'', 'image'=>'kitchen.png'],
+            ['category_id'=> 3, 'name_id'=> 'Kamar Tidur', 'name_en'=> 'Bedroom', 'audio'=>'', 'image'=>'bedroom.png'],
+            ['category_id'=> 3, 'name_id'=> 'Kamar Mandi', 'name_en'=> 'Bathroom', 'audio'=>'', 'image'=>'bathroom.png'],
+            ['category_id'=> 3, 'name_id'=> 'Garasi', 'name_en'=> 'Garage', 'audio'=>'', 'image'=>'garage.png'],
         ]);
     }
 }

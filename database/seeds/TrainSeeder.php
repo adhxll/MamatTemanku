@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Vocab;
+use App\User;
 
 class TrainSeeder extends Seeder
 {
@@ -12,9 +14,17 @@ class TrainSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('trains')->insert([
-            
-        ]);
+        $vocabs = Vocab::all();
+        $users = User::all();
+
+        foreach($users as $u){
+            foreach($vocabs as $v){
+                DB::table('trains')->insert([
+                    ['user_id'=> $u->id,
+                    'vocab_id' => $v->id,
+                    'status'=>'notlearned']
+                ]);
+            }
+        }
     }
 }
