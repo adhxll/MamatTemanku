@@ -47,7 +47,7 @@ class VocabController extends Controller
      */
     public function show($category_id)
     {
-        $vocabs = Vocab::where('category_id', $category_id);
+        $vocabs = Vocab::all()->where('category_id', $category_id);
 
         return view('learn', compact('vocabs'));
     }
