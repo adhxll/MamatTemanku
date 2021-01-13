@@ -14,9 +14,8 @@ class TrainController extends Controller
      */
 
     public function changeStatus(Request $r){
-        $t = Train::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)->first();
-
-        $t->update(['status'=> $r->status]);
+        Train::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)
+        ->update(['status'=> $r->status]);
 
         return redirect()->back();
     }

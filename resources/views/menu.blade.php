@@ -1,13 +1,24 @@
 @extends('layouts.app')
 
+@section('title')
+Kategori - {{ucfirst($category->name)}}
+@endsection
+
 @section('content')
 <div class="container">
-    <h3>{{$category->name}}</h3>
-    <img src="{{ asset('storage/assets/'.$category->image) }}" style="object-fit: cover; width: 100%;">
+    <h3 class="text-center font-weight-bold">{{$category->name}} Category</h3>
+
+    <br>
+
+    <img src="{{ asset('storage/assets/'.$category->image) }}" class="img-responsive d-block" style="object-fit: contain; width:100%; max-height:500px;">
     
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a class="btn btn-outline-secondary mr-sm-3" role="button" href="{{ $category->id }}/learn">Learn</a>
-        <a class="btn btn-outline-warning" role="button" href="{{ $category->id }}/testing">Test</a>
+    <br>
+
+    <div class="wrapper text-center">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="border-radius: 30pt; width:60%;">
+            <a class="btn btn-outline-secondary font-weight-bold mr-sm-3" role="button" href="{{ $category->id }}/learn" style="border-radius: 30pt;">Learn <span class="font-italic" style="font-size:small;">(belajar)</span></a>
+            <a class="btn btn-outline-warning font-weight-bold" role="button" href="{{ $category->id }}/test" style="border-radius: 30pt;">Test <span class="font-italic" style="font-size:small;">(ujian)</span></a>
+        </div>
     </div>
 </div>
 @endsection

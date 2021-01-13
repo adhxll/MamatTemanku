@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Test;
+use App\Vocab;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -13,9 +15,8 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function changeStatus(Request $r){
-        $t = Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)->first();
-
-        $t->update(['status'=> $r->status]);
+        Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)
+        ->update(['status'=> $r->status]);
 
         return redirect()->back();
     }
@@ -52,9 +53,11 @@ class TestController extends Controller
      * @param  \App\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function show(Test $test)
+    public function show($category_id)
     {
-        //
+        $vocabs = Vocab::all()->where('category_id', $category_id)->shuffle()->paginate(1);
+
+        return view('test', compact('vocabs'));
     }
 
     /**

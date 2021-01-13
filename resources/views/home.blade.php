@@ -11,7 +11,7 @@ Home
         @foreach ($categories as $category)
         <td class="h-100">
             <div class="container" id="category">
-                <img src="{{ asset('storage/assets/'.$category->image) }}" class="image" id="category_img" style="object-fit: cover; width: 100%;">
+                <img src="{{ asset('storage/assets/'.$category->image) }}" class="img-responsive d-block" id="category_img" style="object-fit: contain; width:100%; max-height:350px;">
                 <div class="middle">
                     <div class="text">
                         <a href="/categories/{{$category->id}}">{{$category->name}}</a>

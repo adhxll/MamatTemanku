@@ -9,9 +9,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/categories/{id}', 'CategoryController@show');
-
-Route::get('/categories/{id}/learn', 'VocabController@show');
+//whichever route in this Sgroup can only access it if they log in
+//otherwise they will be redirected to login page
+Route::middleware(['auth'])->group(function(){
+    Route::get('/categories/{id}', 'CategoryController@show');
+    Route::get('/categories/{id}/learn', 'VocabController@show');
+    Route::post('/learned', 'TrainController@changeStatus');
+    Route::get('/categories/{id}/test', 'TestController@show');
+    Route::get('/rapor', 'RaporController@show');
+});
