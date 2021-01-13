@@ -8,19 +8,21 @@
     <h1>Kategori</h1>
     <!-- HI GUYS INI ADEL GUA UDA BIKININ FUNCTION DI TRAIN SAMA TEST CONTROLLER YA BUAT GANTI STATUSNYA -->
     <!-- ini form + tombol buat gonta ganti status -->
-    <!-- <form class="form-inline" action="/learned" method="post">
+    {{-- <form class="form-inline" action="/learned" method="post">
          {{ csrf_field() }}
         <input type="hidden" name="user_id" value="{{ $p->user_id }}">
         <input type="hidden" name="vocab_id" value="{{ $p->product_id }}">
         <input type="hidden" name="status" value="learned">
         <input type="submit" value="Learned"class="btn btn-outline-dark ml-2">
-    </form> -->
+    </form> --}}
 
     @foreach ($vocabs as $vocab)
-    <img src="{{asset('storage/assets/'.$vocab->image)}}" alt="">
+    {{$vocab->name_en}}
+    <br>
+    <img src="{{ asset('storage/assets/'.$vocab->image) }}" alt="">
     @endforeach
 
-    <!-- <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    {{-- <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 
         <ol class="carousel-indicators">
             @for($i=0; $i<=count(array($vocabs)); $i++)
@@ -55,7 +57,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div> -->
+    </div> --}}
     
 </div>
 
