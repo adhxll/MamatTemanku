@@ -16,7 +16,7 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('vocab_id')->references('id')->on('vocabs')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('status'); //wrongs, none (default), correct 
+            $table->string('status'); //wrong, none (default), correct 
             $table->timestamps();
         });
     }

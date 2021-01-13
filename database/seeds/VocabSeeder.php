@@ -31,7 +31,7 @@ class VocabSeeder extends Seeder
 
         DB::table('vocabs')->insert([
             ['category_id'=> 3, 'name_id'=> 'Ruang Tamu', 'name_en'=> 'Living Room', 'audio'=>'', 'image'=>'livingroom.png'],
-            ['category_id'=> 3, 'name_id'=> 'Dapur', 'name_en'=> 'Cow', 'Kitchen'=>'', 'image'=>'kitchen.jpg'],
+            ['category_id'=> 3, 'name_id'=> 'Dapur', 'name_en'=> 'Kitchen', 'audio'=>'', 'image'=>'kitchen.jpg'],
             ['category_id'=> 3, 'name_id'=> 'Kamar Tidur', 'name_en'=> 'Bedroom', 'audio'=>'', 'image'=>'bedroom.jpg'],
             ['category_id'=> 3, 'name_id'=> 'Kamar Mandi', 'name_en'=> 'Bathroom', 'audio'=>'', 'image'=>'bathroom.jpg'],
             ['category_id'=> 3, 'name_id'=> 'Garasi', 'name_en'=> 'Garage', 'audio'=>'', 'image'=>'garage.jpg'],
