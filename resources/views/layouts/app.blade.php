@@ -113,7 +113,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ffb563;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Mamat Temanku
