@@ -24,6 +24,7 @@ class TestController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -56,8 +57,8 @@ class TestController extends Controller
     public function show($category_id)
     {
         $vocabs = Vocab::where('category_id', $category_id)->paginate(1);
-
-        return view('test', compact('vocabs'));
+        $answers = Vocab::all()->where('category_id', $category_id);
+        return view('test', compact('vocabs', 'answers'));
     }
 
     /**

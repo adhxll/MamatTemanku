@@ -14,26 +14,26 @@ Ujian - {{ucfirst($vocabs->first()->category->name)}}
 
         {{-- masih buat coba2 --}}
 
-        @foreach($quiz->questions as $question)
-            <fieldset class="form-group row">
-                <legend>{{ $question->question }}</legend>
-                <?php $j = 1 ?>
-                <div class="form-check">
-                    @foreach($test->vocab as $answer)
-                        <div class="row">
-                            <label class="form-check-label col-md-6" for="{{$test->id}}">  {{ $answer->answer }} </label>
-                            <img src="{{ asset('storage/assets/'.$vocab->image) }}" class="img-responsive d-block w-100" alt="" style="object-fit: contain; max-height:600px;">
-                            <input type="radio" class="form-check-input col-md-6" name="{{$test->id}}" value="{{$answer->id}}" {{ $j==1 ? 'checked' : '' }}>
-                            <?php $j++ ?>
-                        </div>
-                    @endforeach
-                </div>
-            </fieldset>
-            <?php $i++ ?>
-        @endforeach
         @foreach ($vocabs as $vocab)
-            {{$vocab->name_en}}
-            
+        <div class="card" style="width: 100%;">
+            <img src="{{ asset('storage/assets/'.$vocab->image) }}" class="card-img-top img-responsive d-block w-100" alt="" style="object-fit: contain; max-height:600px;">
+            <div class="card-body">
+                <h6 class="card-title">What's the name of the picture above?</h6>
+    
+                <form class="container">
+                    @foreach($answers as $answer)
+                    <div class="form-group">
+                        <input class="form-check-input" type="radio" name="answer" id="answer.{{$answer->id}}" value="{{$answer->name_en}}">
+                        <label class="form-check-label" for="answer.{{$answer->id}}">
+                            {{$answer->name_en}}
+                        </label>
+                    </div>
+                    @endforeach
+                </form>
+
+                <a href="#" class="btn btn-primary">Submit</a>
+            </div>
+        </div>
         @endforeach
 
         {{$vocabs->links()}}

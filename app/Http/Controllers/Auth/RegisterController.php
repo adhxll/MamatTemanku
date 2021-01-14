@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Vocab;
+use App\Train;
+use App\Test;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,10 +67,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $vocabs = Vocab::all();
+
+        foreach($vocabs as $v){
+            Train::insert([
+                ['user_id'=> $user->id,
+                'vocab_id' => $v->id,
+                'status'=>'notlearned']
+            ]);
+        }
+        foreach($vocabs as $v){
+            Test::insert([
+                ['user_id'=> $user->id,
+                'vocab_id' => $v->id,
+                'status'=>'none']
+            ]);
+        }
+
+        return $user;
     }
 }

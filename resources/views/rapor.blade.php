@@ -21,7 +21,7 @@ Rapor
                         <!-- IF THE USER HAVENT FINISHED THE CATEGORY'S TEST -->
                         @if($data[$i][1]+$data[$i][2]==0)
                         <p class="card-text">No score yet.</p>
-                        <a href="/categories/{{$data[$i][0]->id}}/test" class="btn btn-primary">Take the test!</a>
+                        <a href="/categories/{{$data[$i][0]->id}}/test" class="btn btn-dark">Take the test!</a>
                         @else
                         <!-- IF THE USER ALREADY FINISH THE CATEGORY'S TEST -->
                         <p class="card-text">TOTAL SCORE: {{ $data[$i][1]/$data[$i][1]+$data[$i][2]*100 }}%</p>

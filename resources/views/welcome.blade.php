@@ -12,7 +12,7 @@
                 @if (Route::has('login'))
                     <div class="links">
                         @auth
-                            <a href="{{ url('/home') }}">Begin</a>
+                            <a href="{{ url('/home') }}">Begin (Mulai)</a>
                         @else
                             <a href="{{ route('login') }}">Login</a>
     
