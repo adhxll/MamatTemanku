@@ -55,7 +55,7 @@ class TestController extends Controller
      */
     public function show($category_id)
     {
-        $vocabs = Vocab::all()->where('category_id', $category_id)->shuffle()->paginate(1);
+        $vocabs = Vocab::where('category_id', $category_id)->paginate(1);
 
         return view('test', compact('vocabs'));
     }
