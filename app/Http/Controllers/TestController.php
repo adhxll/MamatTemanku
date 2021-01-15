@@ -6,6 +6,7 @@ use App\Test;
 use App\Vocab;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class TestController extends Controller
 {
@@ -15,9 +16,21 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function changeStatus(Request $r){
-        Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)
-        ->update(['status'=> $r->status]);
-
+        $right_answer = Vocab::find($r->vocab_id, 'name_en');
+        $right_answer = $right_answer->name_en;
+        
+        // cek jawaban benar atau salah
+        if($r->answer == $right_answer){
+            Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)
+            ->update(['status'=>'correct']);
+            Session::flash('correct', 'Yay, you pick the right word! Click next to continue..');
+        }
+        else{
+            Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)
+            ->update(['status'=>'incorrect']);
+            Session::flash('incorrect', 'Whoops, sorry wrong answer :( You can try again..');
+        }
+        
         return redirect()->back();
     }
 
