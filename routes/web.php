@@ -18,5 +18,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/categories/{id}/learn', 'VocabController@show');
     Route::post('/learned', 'TrainController@changeStatus');
     Route::get('/categories/{id}/test', 'TestController@show');
+    Route::post('/checkAnswer', 'TestController@changeStatus');
     Route::get('/rapor', 'RaporController@show');
 });

@@ -117,7 +117,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ffb563;">
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ffdb58;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Mamat Temanku
@@ -151,7 +151,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <div class="dropdown-header"><u><i>Hello, {{ Auth::user()->name }}!</i></u></div>
+                                <div class="dropdown-header" style="font-size: large;"><b><i>Hello, {{ Auth::user()->name }}!</i></b></div>
                                 <a class="dropdown-item" href="/rapor">Rapor</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

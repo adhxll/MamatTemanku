@@ -27,7 +27,7 @@ class RaporController extends Controller
                 //hitung banyak benar dan salah
                 if($temp->status == 'correct'){
                     $correct++;
-                }else if($temp->status == ''){
+                }else if($temp->status == 'incorrect'){
                     $wrong++;
                 }
             }
