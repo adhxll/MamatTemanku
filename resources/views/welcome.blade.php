@@ -1,8 +1,8 @@
 @extends('layouts.welcomeapp')
 
 @section('welcome')
-    <div class="container">
-        <div class="m-b-md">
+    <div class="container" style="margin-top: 10%;">
+        <div class="m-b-md ">
             <div class="flex-center position-ref">
                 @php $path = Storage::url('assets\logo_mamat_transparent.png'); @endphp
                 <img src="{{ url($path) }}" width="250" height="250"> 

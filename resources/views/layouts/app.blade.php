@@ -91,8 +91,6 @@
                 transition: .5s ease;
                 opacity: 0;
                 position: absolute;
-                /* top: 50%;
-                left: 50%; */
                 transform: translate(-50%, -50%);
                 -ms-transform: translate(-50%, -50%);
                 text-align: center;
@@ -113,13 +111,56 @@
                 font-size: 16px;
                 padding: 16px 32px;
             }
+
+            #category {
+                width: 350px;
+                position: relative;
+                display: inline-block;
+                margin: 10px;
+            }
+
+            #category #category_img {
+                width: 100%;
+            }
+
+            #category:hover #category_img {
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+                transition: filter 0.5s ease-in-out;
+            }
+
+            #category span{
+                display: none;
+                position: absolute;
+                top: 100px;
+                left: 75px;
+            }
+
+            #category:hover span{
+                display: block;
+            }
+
+            #category span button{
+                margin-top: -350%;
+                width: 150px;
+                height: 40px;
+                background: black;
+            }
+
+            nav{
+                /* #ffdb58; */
+                background: rgb(255, 219, 88);
+                background: linear-gradient(0deg, rgba(153,204,255,0) 0%, rgba(255, 219, 88,1) 70%);
+            }
         </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ffdb58;">
+        <nav class="navbar navbar-expand-md navbar-light">
+        <!-- style="background-color: #99ccff;" -->
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('storage/assets/mamat_head.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
                     Mamat Temanku
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}" >
@@ -151,7 +192,8 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <div class="dropdown-header" style="font-size: large;"><b><i>Hello, {{ Auth::user()->name }}!</i></b></div>
+                                <div class="dropdown-header font-weight-bold text-dark" style="font-size: large;"><i>Hello, {{ Auth::user()->name }}!</i></div>
+                                <a class="dropdown-item" href="/home">Home</a>
                                 <a class="dropdown-item" href="/rapor">Rapor</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -165,16 +207,12 @@
                             </div>
                         </li> 
                         @endguest
-                    </ul>   
+                    </ul>
                 </div>
             </div>             
         </nav>
 
         <main class="py-4">
-            <div class="container">
-                <a href="{{url()->previous()}}" class="btn btn-dark"> << Back <span class="font-italic" style="font-size:small;">(kembali)</span></a>
-            </div>
-            <br>
             
             @yield('content')
         </main>

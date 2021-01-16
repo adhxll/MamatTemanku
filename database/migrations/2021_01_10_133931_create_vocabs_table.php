@@ -18,7 +18,8 @@ class CreateVocabsTable extends Migration
             $table->foreignId('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name_id');
             $table->string('name_en');
-            $table->string('audio');
+            $table->string('audio_en');
+            $table->string('audio_id');
             $table->string('image');
             $table->timestamps();
         });

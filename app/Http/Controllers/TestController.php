@@ -18,9 +18,16 @@ class TestController extends Controller
     public function changeStatus(Request $r){
         $right_answer = Vocab::find($r->vocab_id, 'name_en');
         $right_answer = $right_answer->name_en;
-        
+
+        $status = Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)->pluck('status');
+        $status = $status[0];
+
+        // cek if they already answer this question yet
+        if($status == 'correct' || $status == 'incorrect'){
+            Session::flash('done', 'You have already answered this one! Click next to continue..');
+        }
         // cek jawaban benar atau salah
-        if($r->answer == $right_answer){
+        else if($r->answer == $right_answer){
             Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)
             ->update(['status'=>'correct']);
             Session::flash('correct', 'Yay, you pick the right word! Click next to continue..');
@@ -28,7 +35,7 @@ class TestController extends Controller
         else{
             Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)
             ->update(['status'=>'incorrect']);
-            Session::flash('incorrect', 'Whoops, sorry wrong answer :( You can try again..');
+            Session::flash('incorrect', 'Whoops, sorry wrong answer :( You can learn again..');
         }
         
         return redirect()->back();
@@ -69,8 +76,9 @@ class TestController extends Controller
      */
     public function show($category_id)
     {
-        $vocabs = Vocab::where('category_id', $category_id)->paginate(1);
+        $vocabs = Vocab::where('category_id', $category_id)->simplePaginate(1); // kalo mau tulisannya Prev & Next, pake simplePaginat
         $answers = Vocab::all()->where('category_id', $category_id);
+
         return view('test', compact('vocabs', 'answers'));
     }
 

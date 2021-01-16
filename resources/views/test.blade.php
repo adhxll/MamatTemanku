@@ -17,6 +17,12 @@ Ujian - {{ucfirst($vocabs->first()->category->name)}}
             <br>
             <img src="{{ asset('storage/assets/'.$vocab->image) }}" class="card-img-top img-responsive d-block w-100" alt="" style="object-fit: contain; max-height:600px;">
             <div class="card-body">
+                @if(\Session::has('done'))
+                <div class="alert alert-warning text-center">
+                    <p>{{\Session::get('done')}}</p>
+                </div>
+                @endif
+
                 @if(\Session::has('correct'))
                 <div class="alert alert-success text-center">
                     <p>{{\Session::get('correct')}}</p>
@@ -30,7 +36,12 @@ Ujian - {{ucfirst($vocabs->first()->category->name)}}
                 @endif
 
                 <h5 class="card-title text-center font-weight-bold">What's the name of the picture above?</h5>
-                
+        
+                @if($vocab['tests']->where('user_id','like', Auth()->user()->id)->first()->status != 'none')
+                <div class="alert alert-light text-center">
+                    You've answered this question. 
+                </div> 
+                @else
                 <div class="container text-center">
                     <form action="/checkAnswer" method="post">
                         {{ csrf_field() }}
@@ -49,10 +60,14 @@ Ujian - {{ucfirst($vocabs->first()->category->name)}}
                         <input type="submit" value="Check my answer." class="btn btn-warning">
                     </form>
                 </div>
+                @endif
             </div>
         </div>
         @endforeach
 
-        {{$vocabs->links()}}
+        <div class="d-flex justify-content-center">
+            {{$vocabs->links()}}
+        </div>
+        
     </div>
 @endsection

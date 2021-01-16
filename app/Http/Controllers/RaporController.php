@@ -18,7 +18,7 @@ class RaporController extends Controller
             $correct = 0;
             $wrong = 0;
             //kumpulin vocab yang ada di satu category
-            $vocabs = Vocab::where('category_id', 'like', $c->id);
+            $vocabs = Vocab::where('category_id', 'like', $c->id)->get();
             foreach($vocabs as $v){
                 //cari status tiap vocab yang si user udah kerjain di test
                 $temp = Test::where('vocab_id','like',$v->id)
@@ -48,7 +48,21 @@ class RaporController extends Controller
         return view('rapor', ['data'=>$data]);
     }
 
-    public function detail($category_id){
+    public function detail(Request $r){
+        if($r->right+$r->wrong == 0){
+            return redirect()->back();
+        }
 
+        $user_id = $r->user_id;
+        $vocabs = Vocab::where('category_id', 'like', $r->category)->get();
+        $data = array();
+
+        foreach($vocabs as $v){
+            $test = Test::where('vocab_id','like',$v->id)
+            ->where('user_id','like',$user_id)->first();
+            array_push($data, $test);
+        }
+
+        return view('raporDetail', ['data'=> $data, 'right'=>$r->right, 'wrong'=>$r->wrong]); 
     }
 }
