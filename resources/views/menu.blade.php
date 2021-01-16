@@ -6,6 +6,10 @@ Kategori - {{ucfirst($category->name)}}
 
 @section('content')
 <div class="container">
+    <a href="/home" class="btn btn-outline-dark"> << Back <span class="font-italic" style="font-size:small;">(kembali)</span></a>
+</div>
+<br>
+<div class="container">
     <h3 class="text-center font-weight-bold">{{$category->name}} Category</h3>
 
     <br>
