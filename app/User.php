@@ -37,10 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function trains(){
-        return $this->hasMany(Train::class);
-    }
-
     public function tests(){
         return $this->hasMany(Test::class);
     }

@@ -22,7 +22,7 @@ class TestController extends Controller
         $status = Test::where('user_id','like',$r->user_id)->where('vocab_id','like',$r->vocab_id)->pluck('status');
         $status = $status[0];
 
-        // cek if they already answer this question yet
+        // check if they already answer this question yet
         if($status == 'correct' || $status == 'incorrect'){
             Session::flash('done', 'You have already answered this one! Click next to continue..');
         }
@@ -76,10 +76,17 @@ class TestController extends Controller
      */
     public function show($category_id)
     {
-        $vocabs = Vocab::where('category_id', $category_id)->simplePaginate(1); // kalo mau tulisannya Prev & Next, pake simplePaginat
+        $vocabs = Vocab::where('category_id', $category_id)->simplePaginate(1); // kalo mau tulisannya Prev & Next, pake simplePaginate
         $answers = Vocab::all()->where('category_id', $category_id);
 
-        return view('test', compact('vocabs', 'answers'));
+        $user_id = Auth()->user()->id;
+        $testarray = array();
+        foreach($answers as $a){
+            $temp = Test::where('user_id','like',$user_id)
+            ->where('vocab_id','like', $a->id)->first();
+            array_push($testarray, $temp);
+        }
+        return view('test', compact('vocabs', 'answers','testarray'));
     }
 
     /**

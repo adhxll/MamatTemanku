@@ -21,4 +21,5 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/checkAnswer', 'TestController@changeStatus');
     Route::get('/rapor', 'RaporController@show');
     Route::post('/rapordetail', 'RaporController@detail');
+    Route::post('/finished', 'TestController@torapor');
 });

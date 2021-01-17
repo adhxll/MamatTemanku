@@ -16,7 +16,7 @@ Belajar - {{ucfirst($vocabs->first()->category->name)}}
     <h2 class="text-center font-weight-bold"><u>{{$vocabs->first()->category->name}} Category</u></h2>
     <br>
 
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide"  data-interval="false">
         <ol class="carousel-indicators">
             @for($i=0; $i<=count($vocabs); $i++)
                 @if($i == 0) 
@@ -53,16 +53,6 @@ Belajar - {{ucfirst($vocabs->first()->category->name)}}
                                 <button onclick="document.getElementById('player_en.{{$vocab->id}}').play()" type="button" class="btn btn-secondary" style="border-radius: 30pt;">English</button>
                                 <button onclick="document.getElementById('player_id.{{$vocab->id}}').play()" type="button" class="btn btn-secondary" style="border-radius: 30pt;">Bahasa</button>
                             </div>
-
-                            <br>
-
-                            <form class="form-inline d-flex justify-content-center" action="/learned" method="post">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="vocab_id" value="{{ $vocab->id }}">
-                                <input type="hidden" name="status" value="learned">
-                                <input type="submit" value="I have understood this word." class="btn btn-light" style="border-radius: 30pt;">
-                            </form>
                         </div>
                     </div>
                 </div>

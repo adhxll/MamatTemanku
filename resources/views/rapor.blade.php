@@ -37,7 +37,7 @@ Rapor
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="category" value="{{ $data[$i][0]->id }}">
                                 <input type="hidden" name="right" value="{{ $data[$i][1] }}">
-                                <input type="hidden" name="wrong" value="{{ $data[$i][1] }}">
+                                <input type="hidden" name="wrong" value="{{ $data[$i][2] }}">
                                 <input type="submit" value="See details" class="btn btn-success">
                             </form>
                             @endif

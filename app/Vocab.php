@@ -11,10 +11,6 @@ class Vocab extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function trains(){
-        return $this->hasMany(Train::class);
-    }
-
     public function tests(){
         return $this->hasMany(Test::class);
     }
