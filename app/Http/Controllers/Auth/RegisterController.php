@@ -75,13 +75,6 @@ class RegisterController extends Controller
         $vocabs = Vocab::all();
 
         foreach($vocabs as $v){
-            Train::insert([
-                ['user_id'=> $user->id,
-                'vocab_id' => $v->id,
-                'status'=>'notlearned']
-            ]);
-        }
-        foreach($vocabs as $v){
             Test::insert([
                 ['user_id'=> $user->id,
                 'vocab_id' => $v->id,
